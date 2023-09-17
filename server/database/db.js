@@ -1,6 +1,6 @@
 import { Sequelize } from '@sequelize/core';
 import configs from "./db.json";
-import IDO from "../model/ido";
+import LINK from "../model/link";
 
 const dbHost = configs.mysql.host,
   dbPort = configs.mysql.port,
@@ -31,5 +31,5 @@ const db = {
   }),
 };
 
-db.IDO = IDO(db.sequelize, Sequelize.DataTypes);
+db.LINK = LINK(db.sequelize, Sequelize.DataTypes);
 export default db;
