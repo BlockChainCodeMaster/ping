@@ -7,10 +7,12 @@ const LINK = (sequelize, DataTypes) => {
       autoIncrement: true,
     },
     from: DataTypes.STRING,
+    to: DataTypes.STRING,
     signature: DataTypes.STRING,
-    tokenID:  DataTypes.STRING,
     date: DataTypes.STRING,
-    status: DataTypes.STRING
+    inviteCode: DataTypes.STRING,
+    ga: DataTypes.STRING,
+    status: DataTypes.INTEGER
   })
   table.sync();
   return table;

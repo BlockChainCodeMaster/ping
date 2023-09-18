@@ -5,6 +5,13 @@ import logger from 'morgan'
 import router from './router/router'
 import bodyParser from 'body-parser'
 import cookieParser from "cookie-parser"
+import cookieSession from 'cookie-session'
+import passport from 'passport'
+import passportSetup from './config/passport-setup'
+import keys from './config/keys'
+import authRoutes from './router/auth-routes'
+
+
 const port = parseInt(process.env.PORT, 10) || 8080
 const env = process.env.NODE_ENV
 const dev = env !== 'production'
@@ -24,6 +31,14 @@ app
       // Logs
       server.use(logger("dev"))
 
+      server.use(
+        cookieSession({
+          name: "session",
+          keys: [keys.COOKIE_KEY],
+          maxAge: 24 * 60 * 60 * 100
+        })
+      )
+
       // Router
       server.use(cookieParser())
 
@@ -34,6 +49,38 @@ app
       )
       server.use(bodyParser.json())
       
+      
+
+      // initalize passport
+      server.use(passport.initialize())
+      // deserialize cookie from the browser
+      server.use(passport.session())
+
+      server.use("/auth", authRoutes)
+      
+      const authCheck = (req, res, next) => {
+      if (!req.user) {
+          res.status(200).json({
+            authenticated: false,
+            message: "user has not been authenticated"
+          });
+        } else {
+          next();
+        }
+      };
+
+      // if it's already login, send the profile response,
+      // otherwise, send a 401 response that the user is not authenticated
+      // authCheck before navigating to home page
+      server.get("/auth/user", authCheck, (req, res) => {
+        res.status(200).json({
+          authenticated: true,
+          message: "user successfully authenticated",
+          user: req.user,
+          cookies: req.cookies
+        });
+      });
+
       router(server, handle)
 
 

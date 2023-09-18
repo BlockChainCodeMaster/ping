@@ -1,6 +1,8 @@
 import { Sequelize } from '@sequelize/core';
 import configs from "./db.json";
 import LINK from "../model/link";
+import STATE from "../model/state";
+import USERS from "../model/users";
 
 const dbHost = configs.mysql.host,
   dbPort = configs.mysql.port,
@@ -32,4 +34,7 @@ const db = {
 };
 
 db.LINK = LINK(db.sequelize, Sequelize.DataTypes);
+db.STATE = STATE(db.sequelize, Sequelize.DataTypes);
+db.USERS = USERS(db.sequelize, Sequelize.DataTypes);
+
 export default db;
