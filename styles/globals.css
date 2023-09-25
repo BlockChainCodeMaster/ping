@@ -16,6 +16,74 @@
   }
 }
 
+@font-face {
+  font-family: GT-America-Regular;
+  src: url(../public/fonts/GT-America-Regular.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Extended-Regular;
+  src: url(../public/fonts/GT-America-Extended-Regular.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Regular-Italic;
+  src: url(../public/fonts/GT-America-Regular-Italic.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Extended-Regular-Italic;
+  src: url(../public/fonts/GT-America-Extended-Regular-Italic.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Compressed-Medium;
+  src: url(../public/fonts/GT-America-Compressed-Medium.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Extended-Medium;
+  src: url(../public/fonts/GT-America-Extended-Medium.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Extended-Black;
+  src: url(../public/fonts/GT-America-Extended-Black.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Compressed-Medium;
+  src: url(../public/fonts/GT-America-Compressed-Medium.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: GT-America-Bold;
+  src: url(../public/fonts/GT-America-Bold.OTF) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
 body {
+  font-family: GT-America-Regular;
   color: rgb(var(--foreground-rgb));
+}
+
+html {
+  scroll-behavior: smooth;
 }

@@ -1,15 +1,11 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Header from './header'
-import Footer from './footer'
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body>
-        <Header />
+      <body className='bg-[#1b1439]'>
         <Main />
-        <Footer />
         <NextScript />
       </body>
     </Html>
